@@ -1,0 +1,47 @@
+{
+  "name": "mefs-mcp-server",
+  "version": "1.0.0",
+  "description": "MEFS mcp server - decentralized storage network for AI assistants",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm typecheck && tsc",
+    "test": "pnpm typecheck && vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memoio/mefs-mcp-server.git"
+  },
+  "keywords": [
+    "mcp",
+    "storage",
+    "mefs",
+    "ai",
+    "long-term-storage",
+    "decentralized"
+  ],
+  "author": "memoio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/memoio/mefs-mcp-server/issues"
+  },
+  "homepage": "https://github.com/memoio/mefs-mcp-server#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@chatmcp/sdk": "^1.0.6",
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "ethers": "^6.16.0",
+    "express": "^5.2.1",
+    "multiformats": "^13.4.2",
+    "vitest": "^4.0.16",
+    "zod": "^4.2.1"
+  }
+}
