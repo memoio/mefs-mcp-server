@@ -1,48 +1,48 @@
 # MEFS-MCP-SERVER
 
-MEMO MCP Server为AI代理提供标准的存储接口，允许AI代理将生成的内容保存到MEFS并提供数据检索功能。为AI代理提供去中心化
+MEMO MCP Server provides a standard storage interface for AI agents, allowing AI agents to save generated content to MEFS and providing data retrieval capabilities. It provides decentralized storage for AI agents.
 
-## 用例
+## Use Cases
 
-- 数据加密存储：将AI生成的内容存储到MEFS。
-- 用户上下文检索：将用户的行为和偏好数据存储到MEFS，并在后续请求中，快速检索相关的用户数据并提供给AI代理。
-- 数据无缝分享：AI代理之间能够通过内容标识符 (CID) 实现了无需信任的数据分享。
+- Encrypted data storage: Store AI-generated content to MEFS.
+- User context retrieval: Store user behavior and preference data to MEFS, and quickly retrieve relevant user data in subsequent requests to provide to AI agents.
+- Seamless data sharing: AI agents can achieve trustless data sharing through content identifiers (CID).
 
-## 免费额度
+## Free Quota
 
-立即开始使用mefs-storage，即可免费享受10GB的存储空间。
+Start using mefs-storage now and enjoy 10GB of free storage space.
 
-## 快速安装指南
+## Quick Installation Guide
 
-您可以按照以下步骤安装MCP服务器，在使用MEFS MECP server前，请确保您已创建了EVM私钥。
+You can follow the steps below to install the MCP server. Before using the MEFS MCP server, please ensure you have created an EVM private key.
 
-### 前置条件
+### Prerequisites
 
-在使用MEFS MECP server前，请确保您已创建了EVM私钥。您可以使用[MetaMask](https://metamask.io/)，[Okx Wallet](https://web3.okx.com/)等EVM钱包创建钱包，并获取您的私钥。
+Before using the MEFS MCP server, please ensure you have created an EVM private key. You can use EVM wallets such as [MetaMask](https://metamask.io/) or [Okx Wallet](https://web3.okx.com/) to create a wallet and obtain your private key.
 
-### 克隆仓库
+### Clone Repository
 
 ```bash
 git clone https://github.com/memoio/mefs-mcp-server.git && cd mefs-mcp-server
 ```
 
-### 安装依赖
+### Install Dependencies
 
 ```bash
 pnpm install
 ```
 
-### 编译
+### Build
 
 ```bash
 pnpm run build
 ```
 
-### 配置 MCP 服务器（需要指定私钥）
+### Configure MCP Server (Private Key Required)
 
-您可以在您的客户端中，使用以下配置启动MCP服务器
+You can start the MCP server in your client using the following configuration:
 
-**标准配置**适用于大多数客户端
+**Standard Configuration** - Suitable for most clients
 
 ```json
 {
@@ -61,47 +61,46 @@ pnpm run build
 }
 ```
 
-将YOUR-PRIVATE-KEY替换为您的EVM私钥。
+Replace YOUR-PRIVATE-KEY with your EVM private key.
 
-## 使用MCP工具
+## Using MCP Tools
 
-MEFS MCP Server提供以下工具与去中心化存储网络MEFS交互
+MEFS MCP Server provides the following tools to interact with the decentralized storage network MEFS:
 
-### 上传
+### Upload
 
-上传文件到MEFS：
+Upload files to MEFS:
 
 ```js
-// Example usage in an AI applicationconst 
-result = await uploadFile({  
+// Example usage in an AI application
+const result = await uploadFile({  
         file: base64EncodedContent,  
         name: "document.pdf", 
     });
 ```
 
-参数：
+Parameters:
 
-- `file`: Base64编码的文件内容
-- `name`: 带扩展名的文件名
+- `file`: Base64-encoded file content
+- `name`: Filename with extension
 
-### 检索
+### Retrieve
 
-从MEFS网络检索文件：
+Retrieve files from the MEFS network:
 
 ```javascript
 // Example retrieval by CID
 const document = await retrieveFile({  cid: "bafybei...gq5a/document.pdf"});
 ```
 
-参数：
+Parameters:
 
-- `cid`: 文件的唯一标识符
+- `cid`: Unique identifier of the file
 
-### 查看剩余空间
+### Check Remaining Space
 
-查看剩余存储空间：
+Check remaining storage space:
 
 ```javascript
 const identity = await getSpace({});
 ```
-
