@@ -33,8 +33,8 @@ export const startSSETransport = async (mcpServer: McpServer, config: McpServerC
     })
   );
 
-  // Add OPTIONS handling for preflight requests
-  app.options('*', cors());
+  // Preflight requests are handled by the global CORS middleware above
+  app.options('/sse', cors());
 
   // Keep track of active connections with session IDs
   const connections = new Map<string, SSEServerTransport>();
