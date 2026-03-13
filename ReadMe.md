@@ -45,7 +45,7 @@ You can start the MCP server in your client using the following configuration:
 
 Replace `YOUR-PRIVATE-KEY` with your EVM private key obtained from the EVM wallet.
 
-## REST Mode
+## SSE Mode
 
 The Storacha MCP Storage Server supports SSE transport mode. you can start sse mode with following step:
 
