@@ -47,7 +47,7 @@ Replace `YOUR-PRIVATE-KEY` with your EVM private key obtained from the EVM walle
 
 ## REST Mode
 
-The Storacha MCP Storage Server supports SSE transport mode. 您可以通过以下命令启动sse mode:
+The Storacha MCP Storage Server supports SSE transport mode. you can start sse mode with following step:
 
 ### Clone Repository
 
