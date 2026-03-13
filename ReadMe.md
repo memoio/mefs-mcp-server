@@ -20,6 +20,35 @@ You can follow the steps below to install the MCP server. Before using the MEFS 
 
 Before using the MEFS MCP server, please ensure you have created an EVM private key. You can use EVM wallets such as [MetaMask](https://metamask.io/) or [Okx Wallet](https://web3.okx.com/) to create a wallet and obtain your private key.
 
+### Configure MCP Server (Private Key Required)
+
+You can start the MCP server in your client using the following configuration:
+
+**Standard Configuration** - Suitable for most clients
+
+```json
+{
+  "mcpServers": {
+    "mefs-storage-server": {
+      "command": "npx",
+      "args": ["mefs-mcp-server"],
+      "env": {
+        "MCP_TRANSPORT_MODE": "stdio",
+        "MEFS_PRIVATE_KEY": "<YOUR-PRIVATE-KEY>",
+      },
+      "shell": true,
+      "cwd": "./",
+    },
+  },
+}
+```
+
+Replace `YOUR-PRIVATE-KEY` with your EVM private key obtained from the EVM wallet.
+
+## REST Mode
+
+The Storacha MCP Storage Server supports SSE transport mode. 您可以通过以下命令启动sse mode:
+
 ### Clone Repository
 
 ```bash
@@ -38,30 +67,29 @@ pnpm install
 pnpm run build
 ```
 
-### Configure MCP Server (Private Key Required)
+### Start with SSE mode
 
-You can start the MCP server in your client using the following configuration:
+```bash
+pnpm run start:sse
+```
 
-**Standard Configuration** - Suitable for most clients
+You can configure `MEFS_PRIVATE_KEY` in your `.env` file, add `MEFS_PRIVATE_KEY` to your path with `export` command, or start the system using the following command to use your EVM private key：
 
-```json
+```bash
+MEFS_PRIVATE_KEY=<YOUR-PRIVATE-KEY> pnpm run start:sse
+```
+
+### Configure MCP Server (SSE mode)
+
+```
 {
   "mcpServers": {
-    "storacha-storage-server": {
-      "command": "node",
-      "args": ["./dist/index.js"],
-      "env": {
-        "MCP_TRANSPORT_MODE": "stdio",
-        "MEFS_PRIVATE_KEY": "<YOUR-PRIVATE-KEY>",
-      },
-      "shell": true,
-      "cwd": "./",
+    "mefs-storage-server": {
+      "url": "http://localhost:3001/sse",
     },
   },
 }
 ```
-
-Replace YOUR-PRIVATE-KEY with your EVM private key.
 
 ## Using MCP Tools
 
