@@ -47,7 +47,7 @@ Replace `YOUR-PRIVATE-KEY` with your EVM private key obtained from the EVM walle
 
 ## SSE Mode
 
-The Storacha MCP Storage Server supports SSE transport mode. you can start sse mode with following step:
+The MEFS MCP Storage Server supports SSE transport mode. you can start sse mode with following step:
 
 ### Clone Repository
 
